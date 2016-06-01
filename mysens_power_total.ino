@@ -58,6 +58,7 @@ unsigned long lastSend;
 MyMessage wattMsg(CHILD_ID,V_WATT);
 MyMessage kwhMsg(CHILD_ID,V_KWH);
 MyMessage pcMsg(CHILD_ID,V_VAR1);
+MyMessage pcMsgStart(CHILD_ID,V_VAR2);
 
 
 void setup()  
@@ -71,10 +72,13 @@ void setup()
   gw.present(CHILD_ID, S_POWER);
 
   // Fetch last known pulse count value from gw
-  gw.request(CHILD_ID, V_VAR1);
+  //gw.request(CHILD_ID, V_VAR1);
+  
+  // semd start message request to gw
+  gw.send(pcMsgStart.set("START"));
   
   // Send startup log message on serial
-   Serial.print("gw grg current channel: ");
+   Serial.print("gw power sensor current channel: ");
    Serial.println(RF24_CHANNEL);
   
   attachInterrupt(INTERRUPT, onPulse, RISING);
