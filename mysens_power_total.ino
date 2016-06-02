@@ -74,7 +74,7 @@ void setup()
   gw.request(CHILD_ID, V_VAR1);
   
   // Send startup log message on serial
-   Serial.print("gw grg current channel: ");
+   Serial.print("current radio channel: ");
    Serial.println(RF24_CHANNEL);
   
   attachInterrupt(INTERRUPT, onPulse, RISING);
