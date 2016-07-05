@@ -65,7 +65,7 @@ void setup()
   gw.begin(incomingMessage,MY_NODE_ID);
 
   // Send the sketch version information to the gateway and Controller
-  gw.sendSketchInfo("Energy Meter", "1.0");
+  gw.sendSketchInfo("Energy Meter Total", "1.0");
 
   // Register this device as power sensor
   gw.present(CHILD_ID, S_POWER);
